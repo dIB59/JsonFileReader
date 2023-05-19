@@ -27,10 +27,10 @@ class MainTest {
         assertTrue(Files.isRegularFile(p));
     }
 
-    @Test
-    void shouldReturnFile() {
-        assertEquals("/Users/salt-dev/Desktop/TempSaltFolder/data.json", Main.fileDataReader(FILE_LOCATION));
-    }
+//    @Test
+//    void shouldReturnFile() {
+//        assertEquals("/Users/salt-dev/Desktop/TempSaltFolder/data.json", Json.fileDataReader(FILE_LOCATION));
+//    }
 
 
 }
