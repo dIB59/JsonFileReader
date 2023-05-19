@@ -5,30 +5,36 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         System.out.println("Hello new world!");
+        fileReader(Path.of("/Users/salt-dev/Desktop/TempSaltFolder/data.json"));
     }
 
     private static ObjectMapper MAPPER = new ObjectMapper();
 
-//    public static String fileDataReader(String s) {
-//        Path fileName = Path.of("/Users/salt-dev/Desktop/TempSaltFolder/data.json");
-//
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//// De-serialize to an object
-//        Person user = mapper.readTree("Somehting");
-//        System.out.println(user.name); //John
-//
-//// Read a single attribute
-//        JsonNode nameNode = mapper.readTree("{\"name\": \"John\"}");
-//        System.out.println(name.get("name").asText());
-//
-//        return fileName.toString();
-//
-//    }
+    private static JsonNode fileReader( Path filePath) throws JsonProcessingException {
 
+        List<String> lines = Collections.emptyList();
+        try {
+            Files Files = null;
+            lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
+        } catch (IOException e)
+        {// do something
+            e.printStackTrace();
+        }
+        String singleLine = "";
+        for (String line : lines){
+            singleLine += line;
+        }
+        System.out.println(Json.parse(singleLine));
+        return Json.parse(singleLine);
+    }
 }
